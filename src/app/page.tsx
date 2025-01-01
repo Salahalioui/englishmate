@@ -1,101 +1,157 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import Link from 'next/link'
+import { FaMicrophone, FaRobot, FaPlay, FaBook, FaQuestionCircle, FaTheaterMasks, FaCog } from 'react-icons/fa'
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-5xl mx-auto px-4 py-4 sm:py-6 flex items-center justify-between">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800">EnglishMate</h1>
+          <Link
+            href="/settings"
+            className="text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-2 text-sm sm:text-base"
+          >
+            <FaCog className="w-4 h-4 sm:w-5 sm:h-5" />
+            <span className="hidden sm:inline">Settings</span>
+          </Link>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* Hero Section */}
+      <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+            Practice English with AI
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
+            Get real-time pronunciation feedback and improve your English speaking skills through natural conversations and interactive quizzes.
+          </p>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 px-4">
+          <Link
+            href="/conversation"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 w-full sm:w-auto"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Start Practice
+            <FaPlay className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/quiz"
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 w-full sm:w-auto"
           >
-            Read our docs
-          </a>
+            Take Quiz
+            <FaQuestionCircle className="w-4 h-4" />
+          </Link>
+          <Link
+            href="/scenarios"
+            className="bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3 w-full sm:w-auto"
+          >
+            Practice Scenarios
+            <FaTheaterMasks className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16 px-4">
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <FaMicrophone className="w-6 h-6 text-blue-500" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+              Voice Recognition
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600">
+              Practice speaking naturally with advanced voice recognition technology.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+              <FaRobot className="w-6 h-6 text-purple-500" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+              AI Feedback
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600">
+              Get detailed pronunciation analysis and improvement suggestions.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <FaBook className="w-6 h-6 text-green-500" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+              Vocabulary Quizzes
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600">
+              Learn new words with AI-generated quizzes tailored to your level.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+            <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+              <FaTheaterMasks className="w-6 h-6 text-green-500" />
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+              Real-life Scenarios
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600">
+              Practice English in realistic situations with guided conversations and feedback.
+            </p>
+          </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="bg-white rounded-xl p-6 sm:p-8 shadow-md mx-4">
+          <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-6 text-center">
+            How It Works
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <div className="text-center">
+              <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center mx-auto mb-4 font-semibold">
+                1
+              </div>
+              <h4 className="font-medium text-gray-800 mb-2">Choose Your Activity</h4>
+              <p className="text-sm text-gray-600">
+                Start a conversation or take a vocabulary quiz at your level.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center mx-auto mb-4 font-semibold">
+                2
+              </div>
+              <h4 className="font-medium text-gray-800 mb-2">Get Instant Feedback</h4>
+              <p className="text-sm text-gray-600">
+                Receive detailed analysis and learn from your mistakes.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-500 flex items-center justify-center mx-auto mb-4 font-semibold">
+                3
+              </div>
+              <h4 className="font-medium text-gray-800 mb-2">Track Progress</h4>
+              <p className="text-sm text-gray-600">
+                See your improvement and unlock new difficulty levels.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-gray-50 border-t mt-16">
+        <div className="max-w-5xl mx-auto px-4 py-8">
+          <p className="text-center text-gray-600 text-sm">
+            © {new Date().getFullYear()} EnglishMate. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
